@@ -8,15 +8,15 @@ A lightweight, zero-dependency SMTP CLI tool written in Go. Send emails from the
 
 ```bash
 # macOS (Apple Silicon)
-curl -L https://github.com/braham517/gosmtp-cli/releases/latest/download/gosmtp-cli_Darwin_arm64.tar.gz | tar xz
+curl -L https://github.com/braham517/gosmtp-cli/releases/latest/download/gosmtp-cli_darwin_arm64.tar.gz | tar xz
 sudo mv gosmtp-cli /usr/local/bin/
 
 # macOS (Intel)
-curl -L https://github.com/braham517/gosmtp-cli/releases/latest/download/gosmtp-cli_Darwin_amd64.tar.gz | tar xz
+curl -L https://github.com/braham517/gosmtp-cli/releases/latest/download/gosmtp-cli_darwin_amd64.tar.gz | tar xz
 sudo mv gosmtp-cli /usr/local/bin/
 
 # Linux (amd64)
-curl -L https://github.com/braham517/gosmtp-cli/releases/latest/download/gosmtp-cli_Linux_amd64.tar.gz | tar xz
+curl -L https://github.com/braham517/gosmtp-cli/releases/latest/download/gosmtp-cli_linux_amd64.tar.gz | tar xz
 sudo mv gosmtp-cli /usr/local/bin/
 ```
 
