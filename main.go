@@ -16,7 +16,7 @@ import (
 	"time"
 )
 
-const version = "0.4.0"
+var version = "dev"
 
 type Config struct {
 	Server        string

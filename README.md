@@ -4,7 +4,35 @@ A lightweight, zero-dependency SMTP CLI tool written in Go. Send emails from the
 
 ## Install
 
+**Download a pre-built binary** (Linux, macOS, Windows — no Go required):
+
 ```bash
+# macOS (Apple Silicon)
+curl -L https://github.com/braham517/gosmtp-cli/releases/latest/download/gosmtp-cli_Darwin_arm64.tar.gz | tar xz
+sudo mv gosmtp-cli /usr/local/bin/
+
+# macOS (Intel)
+curl -L https://github.com/braham517/gosmtp-cli/releases/latest/download/gosmtp-cli_Darwin_amd64.tar.gz | tar xz
+sudo mv gosmtp-cli /usr/local/bin/
+
+# Linux (amd64)
+curl -L https://github.com/braham517/gosmtp-cli/releases/latest/download/gosmtp-cli_Linux_amd64.tar.gz | tar xz
+sudo mv gosmtp-cli /usr/local/bin/
+```
+
+Or grab the binary directly from the [Releases page](https://github.com/braham517/gosmtp-cli/releases).
+
+**Go install** (requires Go 1.21+):
+
+```bash
+go install github.com/braham517/gosmtp-cli@latest
+```
+
+**Build from source:**
+
+```bash
+git clone https://github.com/braham517/gosmtp-cli.git
+cd gosmtp-cli
 go build -o gosmtp-cli .
 ```
 
