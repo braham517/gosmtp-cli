@@ -46,21 +46,45 @@ gosmtp-cli -s SERVER -f FROM -t TO [options]
 
 ### Options
 
+**Connection**
+
 | Flag | Description |
 |------|-------------|
 | `-s HOST[:PORT]` | SMTP server (host or host:port) |
-| `--port N` | SMTP port (default: 25, auto-overridden by host:port) |
+| `-port N` | SMTP port (default: 25, overridden by host:port in `-s`) |
+| `-tls auto\|yes\|no` | STARTTLS mode (default: auto) |
+| `-ssl` | Direct TLS on connect (SMTPS / port 465) |
+
+**Sender & Recipients**
+
+| Flag | Description |
+|------|-------------|
 | `-f ADDRESS` | Sender address |
 | `-t ADDRESS` | Recipient (repeatable, comma-separated) |
 | `-cc ADDRESS` | CC recipient (repeatable, comma-separated) |
 | `-bcc ADDRESS` | BCC recipient (repeatable, comma-separated) |
+
+**Message**
+
+| Flag | Description |
+|------|-------------|
 | `-u SUBJECT` | Subject line |
 | `-m MESSAGE` | Message body (plain text) |
+| `-add-header "Name: value"` | Add a custom header (repeatable) |
+| `-replace-header "Name: value"` | Replace a built-in header (repeatable) |
+
+**Authentication**
+
+| Flag | Description |
+|------|-------------|
 | `-xu USERNAME` | SMTP auth username |
 | `-xp PASSWORD` | SMTP auth password |
-| `--tls auto\|yes\|no` | STARTTLS mode (default: auto) |
-| `--ssl` | Direct TLS on connect (SMTPS / port 465) |
-| `-v` | Verbose — print SMTP session |
+
+**Output**
+
+| Flag | Description |
+|------|-------------|
+| `-v` | Verbose — print full SMTP session |
 
 ## Examples
 

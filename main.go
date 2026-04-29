@@ -90,6 +90,32 @@ func main() {
 	fmt.Println("Email sent successfully.")
 }
 
+func printUsage() {
+	fmt.Fprintf(os.Stderr, "gosmtp-cli v%s — send email from the command line\n\n", version)
+	fmt.Fprintf(os.Stderr, "Usage:\n  gosmtp-cli -s SERVER -f FROM -t TO [options]\n\n")
+	printFlagGroup("Connection", []string{"s", "port", "tls", "ssl"})
+	printFlagGroup("Sender & Recipients", []string{"f", "t", "cc", "bcc"})
+	printFlagGroup("Message", []string{"u", "m", "add-header", "replace-header"})
+	printFlagGroup("Authentication", []string{"xu", "xp"})
+	printFlagGroup("Output", []string{"v"})
+}
+
+func printFlagGroup(title string, names []string) {
+	fmt.Fprintf(os.Stderr, "%s:\n", title)
+	for _, name := range names {
+		f := flag.Lookup(name)
+		if f == nil {
+			continue
+		}
+		if f.DefValue != "" && f.DefValue != "false" && f.DefValue != "0" {
+			fmt.Fprintf(os.Stderr, "  -%s\t%s (default: %s)\n", f.Name, f.Usage, f.DefValue)
+		} else {
+			fmt.Fprintf(os.Stderr, "  -%s\t%s\n", f.Name, f.Usage)
+		}
+	}
+	fmt.Fprintln(os.Stderr)
+}
+
 func parseFlags() *Config {
 	cfg := &Config{}
 
@@ -126,12 +152,7 @@ func parseFlags() *Config {
 		return nil
 	})
 
-	flag.Usage = func() {
-		fmt.Fprintf(os.Stderr, "gosmtp-cli v%s — send email from the command line\n\n", version)
-		fmt.Fprintf(os.Stderr, "Usage: gosmtp-cli -s SERVER -f FROM -t TO [options]\n\n")
-		fmt.Fprintf(os.Stderr, "Options:\n")
-		flag.PrintDefaults()
-	}
+	flag.Usage = printUsage
 
 	flag.Parse()
 
